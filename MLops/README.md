@@ -1,4 +1,3 @@
-\usepackage{mathtools}
 # Занятие №1
 Первое занятие посвящено целям и метрикам.
 По сути пересказ вот [этой](https://habr.com/ru/companies/ods/articles/328372/) статьи на хабре.
@@ -42,6 +41,6 @@
 | y_pred = 0 | 1 | 379 |
 
 Откуда:<br>
-Наихудший recall = 7 / (7 + 1) = 0.875 \approx 0.9<br>
-Наихудший precision = 7 / (7 + 13) = 0.35 \approx 0.4<br>
+Наихудший recall = 7 / (7 + 1) = 0.875 $\approx$ 0.9<br>
+Наихудший precision = 7 / (7 + 13) = 0.35 $\approx$ 0.4<br>
 
