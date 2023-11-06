@@ -22,3 +22,8 @@
 Откуда:<br>
 Наихудший recall = 7 / (7 + 1) = 0.875 $\approx$ 0.9<br>
 Наихудший precision = 7 / (7 + 13) = 0.35 $\approx$ 0.4<br>
+
+# MISSION Canvas
+| Metrics | Ideas | Strategy | Skills | Outputs | Inputs | Nuances |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+|  |  |  |  |  |  |  |
