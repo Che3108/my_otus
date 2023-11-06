@@ -1,3 +1,4 @@
+\usepackage{mathtools}
 # Занятие №1
 Первое занятие посвящено целям и метрикам.
 По сути пересказ вот [этой](https://habr.com/ru/companies/ods/articles/328372/) статьи на хабре.
