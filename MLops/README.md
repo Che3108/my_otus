@@ -43,4 +43,4 @@
 Откуда:<br>
 Наихудший recall = 7 / (7 + 1) = 0.875 $\approx$ 0.9<br>
 Наихудший precision = 7 / (7 + 13) = 0.35 $\approx$ 0.4<br>
-This sentence uses $\` and \`$ delimiters to show math inline:  $`\sqrt{3x-1}+(1+x)^2`$
+
