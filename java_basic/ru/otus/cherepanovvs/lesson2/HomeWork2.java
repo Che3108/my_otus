@@ -4,9 +4,10 @@ import java.util.Scanner;
 
 public class HomeWork2 {
     public static void main(String[] args) {
-        difficultGussNumberGame();
+        simpleCLIcalc();
     }
     
+
     public static void simpleGussNumberGame() {
         final String greetings = "Здравствуй, путник!\nТебе необходимо угадать число, которое я загадал.";
         final int scaleCoefficient = 10;
@@ -30,6 +31,7 @@ public class HomeWork2 {
         }
     }
 
+
     public static void difficultGussNumberGame() {
         int scaleCoefficient;
         int tryingCount;
@@ -49,7 +51,7 @@ public class HomeWork2 {
                 difficultyGame = scanner.nextInt();
             }
         }
-        
+
         switch (difficultyGame) {
             case 1:
                 scaleCoefficient = 10;
@@ -85,7 +87,48 @@ public class HomeWork2 {
                 System.out.println("Загаданное число больше, чем " + answerNumber);
             }
         }
+        scanner.close();
+    }
 
+    public static void simpleCLIcalc() {
+        Scanner scanner = new Scanner(System.in);
+        float firstNumber;
+        float secondNumber;
+        char operator;
+        float result = 0.0f;
+        boolean successFlag = true;
+
+        firstNumber = scanner.nextFloat();
+        operator = scanner.next().charAt(0);
+        secondNumber = scanner.nextFloat();
+
+        switch (operator) {
+            case '+':
+                result = firstNumber + secondNumber;
+                break;
+            case '-':
+                result = firstNumber - secondNumber;
+                break;
+            case '*':
+                result = firstNumber * secondNumber;
+                break;
+            case '/':
+                if (secondNumber == 0.0f) {
+                    System.out.println("Ошибка, на 0 делить нельзя!");
+                    successFlag = false;
+                }
+                result = firstNumber / secondNumber;
+                break;
+            default:
+                System.out.println("Ошибка, оператор неверный!");
+                successFlag = false;
+                break;
+        }
+
+        if (successFlag) {
+            System.out.println(firstNumber + " " + operator + " " + secondNumber + " = " + result);
+        }
+        
         scanner.close();
     }
 }
