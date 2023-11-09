@@ -1,7 +1,7 @@
 package ru.otus.cherepanovvs.lesson2;
 
 public class HomeWork2 {
-    public static void main() {
+    public static void main(String[] args) {
         simpleGussNumber();
     }
 
