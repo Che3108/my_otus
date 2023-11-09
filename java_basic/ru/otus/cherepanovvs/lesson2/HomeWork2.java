@@ -21,6 +21,7 @@ public class HomeWork2 {
 
         hiddenNumber = (int)(Math.random() * scaleCoefficient);
         answerNumber = scanner.nextInt();
+        scanner.close();
 
         if (answerNumber == hiddenNumber) {
             System.out.println("Да, все верно.");
