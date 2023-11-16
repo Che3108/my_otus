@@ -59,7 +59,7 @@ public class HomeWork5 {
         /* Задание 8*
         Реализуйте метод, проверяющий что все элементы массива идут в порядке 
         убывания или возрастания (по выбору пользователя) */
-        checkingOrder(new int[] {3, 2, 1}, true);
+        checkingOrder(new int[] {1,1,1,2,3}, true);
 
         /* Задание 9*
         Реализуйте метод, “переворачивающий” входящий массив */
@@ -70,10 +70,8 @@ public class HomeWork5 {
     }
     
     public static void dublicator(String inputData, int dublicateCount) {
-        if (dublicateCount > 0) {
             for (; dublicateCount > 0; dublicateCount--) {
                 System.out.println(inputData);
-            }
         }
     }
 
