@@ -59,7 +59,7 @@ public class HomeWork5 {
         /* Задание 8*
         Реализуйте метод, проверяющий что все элементы массива идут в порядке 
         убывания или возрастания (по выбору пользователя) */
-        checkingOrder(new int[] {1,1,1,2,3}, true);
+        checkingOrder(new int[] {1,3,2,4}, true);
 
         /* Задание 9*
         Реализуйте метод, “переворачивающий” входящий массив */
@@ -176,25 +176,32 @@ public class HomeWork5 {
     }
 
     public static void checkingOrder(int[] arr, boolean ascending) {
-        int counterUp = 0;
-        int counterZero = 0;
-        for (int i = 0; i < (arr.length - 1); i++) {
-            if (arr[i] == arr[i+1]) {
-                counterZero++;
+        int len = arr.length;
+        int countPositine = 0;
+        int countNegative = 0;
+        for (int i = 1; i < len; i++) {
+            if (arr[i-1] - arr[i] > 0) {
+                countPositine++;
             }
-            if (arr[i] < arr[i+1]) {
-                counterUp++;
+            if (arr[i-1] - arr[i] < 0) {
+                countNegative++;
             }
         }
-        if (counterZero == (arr.length - 1)) {
-            System.out.println("Ложь");
-        } else {
-            if (ascending == (counterUp == (arr.length - 1))) {
-                System.out.println("Правда");
+
+        if (ascending) {
+            if (countPositine == 0) {
+                System.err.println("Правда");
             } else {
-                System.out.println("Ложь");
+                System.err.println("Ложь");
+            }
+        } else {
+            if (countNegative == 0) {
+                System.err.println("Правда");
+            } else {
+                System.err.println("Ложь");
             }
         }
+        
         
     }
 
