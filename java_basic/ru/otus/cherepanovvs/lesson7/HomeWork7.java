@@ -18,6 +18,8 @@ public class HomeWork7 {
         зануляющий его диагональные элементы (можете выбрать любую из диагоналей, или занулить обе); */
         int[][] myArray = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {7, 8, 9}};
         printTable(myArray);
+
+        
         System.out.println();
         int[][] modifyArray = bothDiagZero(myArray);
         printTable(modifyArray);
