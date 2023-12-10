@@ -25,4 +25,12 @@ public class User {
         return this.birthYear;
     }
 
+    public int getAge(int currYear) {
+        int age = -1;
+        if (currYear >= this.birthYear) {
+            age = currYear - this.birthYear;
+        }
+        return age;
+    }
+
 }
