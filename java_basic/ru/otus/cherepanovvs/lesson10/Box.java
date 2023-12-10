@@ -83,34 +83,35 @@ public class Box {
     }
 
     public void putItem(String itemName) {
-        if (this.openFlag) {
-            if (this.emptyFlag) {
-                this.item = itemName;
-                this.emptyFlag = false;
-                System.out.println("Добавлен предмет: " + this.item);
-            } else {
-                System.out.println("Предмет " + itemName + " не добавлен!");
-                System.out.println("Коробка не пуста");
-            }
-        } else {
+        if (!this.openFlag) {
             System.out.println("Предмет " + itemName + " не добавлен!");
             System.out.println("Коробка закрыта");
+            return;
         }
-    
+        if (!this.emptyFlag) {
+            System.out.println("Предмет " + itemName + " не добавлен!");
+            System.out.println("Коробка не пуста");
+            return;
+        }
+        this.item = itemName;
+        this.emptyFlag = false;
+        System.out.println("Добавлен предмет: " + this.item);
+        return;
     }
 
     public void takeItem() {
-        if (this.openFlag) {
-            if (this.emptyFlag) {
-                System.out.println("Брать нечего, коробка пуста");
-            } else {
-                System.out.println("Предмет " + this.item + " успешно взят");
-                this.emptyFlag = true;
-                this.item = "";
-            }
-        } else {
+        if (!this.openFlag) {
             System.out.println("Предмет " + this.item + " не взят!");
             System.out.println("Коробка закрыта");
+            return;
         }
+        if (this.emptyFlag) {
+            System.out.println("Брать нечего, коробка пуста");
+            return;
+        }
+        System.out.println("Предмет " + this.item + " успешно взят");
+        this.emptyFlag = true;
+        this.item = "";
+        return;
     }
 }
