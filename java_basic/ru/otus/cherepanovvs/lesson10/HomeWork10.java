@@ -12,7 +12,7 @@ public class HomeWork10 {
         В методе main() Main класса создайте массив из 10 пользователей и заполните его объектами и 
         с помощью цикла выведите информацию только о пользователях старше 40 лет.
         */
-        final int currYear = 2008;
+        final int currYear = 2007;
         User[] users = {
             new User("Лукьяненко", "Сергей",    "Васильевич",    1968, "Lukyanenko@mymail.moon"),
             new User("Дивов",      "Олег",      "Игоревич",      1968, "Divov@mymail.moon"),
@@ -26,7 +26,7 @@ public class HomeWork10 {
             new User("Каганов",    "Леонид",    "Александрович", 1972, "Kaganov@mymail.moon"),
         };
         for (User user : users) {
-            if (currYear - user.getBirthYear() > 40) {
+            if (user.getAge(currYear) > 40) {
                 user.info();
                 System.out.println();
             }
