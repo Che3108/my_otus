@@ -41,10 +41,10 @@ public class HomeWork7 {
 
     public static int sumOfPositiveElements(int[][] tableArray) {
         int positiveSum = 0;
-        for (int[] row : tableArray) {
-            for (int cellValue : row) {
-                if (cellValue > 0) {
-                    positiveSum += cellValue;
+        for (int i = 0; i < tableArray.length; i++) {
+            for (int j = 0; j < tableArray[i].length; j++) {
+                if (tableArray[i][j] > 0) {
+                    positiveSum += tableArray[i][j];
                 }
             }
         }
@@ -52,26 +52,18 @@ public class HomeWork7 {
     }
 
     public static void printSquad(int size, char fill) {
-        char[][] map = new char[size][size];
-        // наполнение массива
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[i].length; j++) {
-                map[i][j] = fill;
-            }
-        }
-        // вывод массива на экран
-        for (char[] row : map) {
-            for (char cellValue : row) {
-                System.out.print(cellValue + " ");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                System.out.print(fill + " ");
             }
             System.out.println();
         }
     }
 
     public static void printTable(int[][] tableArray) {
-        for (int[] row : tableArray) {
-            for (int cellValue : row) {
-                System.out.print(cellValue + " ");
+        for (int i = 0; i < tableArray.length; i++) {
+            for (int j = 0; j < tableArray[i].length; j++) {
+                System.out.print(tableArray[i][j] + " ");
             }
             System.out.println();
         }
@@ -102,13 +94,13 @@ public class HomeWork7 {
     }
 
     public static int secondRowSum(int[][] array) {
-        int rowCount = array.length;
-        int sum = -1;
-        if (rowCount > 2) {
-            sum = 0;
-            for (int i = 0; i < array[1].length; i++) {
-                sum += array[1][i];
-            }
+        if (array.length < 2) {
+            System.out.println("Массив не содержит искомой строки");
+            return -1;
+        }
+        int sum = 0;
+        for (int i = 0; i < array[1].length; i++) {
+            sum += array[1][i];
         }
         return sum;
     }
