@@ -35,6 +35,7 @@ public class HomeWork7 {
         // исхожу из того, что вторая строка в человеческом смысле, т.е. с индексом 1
         int sum1 = secondRowSum(new int[][] {{-10, 8}, {-2, 4}, {3, -4}, {10, -8}});
         System.out.println(sum1);
+        System.out.println("\n");
         int sum2 = secondRowSum(new int[][] {{-10, 8}});
         System.out.println(sum2);
     }
