@@ -1,4 +1,6 @@
 package ru.otus.cherepanovvs.lesson13;
+import ru.otus.cherepanovvs.lesson13.Transport.Bicycle;
+import ru.otus.cherepanovvs.lesson13.Transport.Car;
 
 public class HomeWork13 {
     public static void main(String[] args) {
@@ -13,5 +15,10 @@ public class HomeWork13 {
         У каждого вида транспорта есть местности по которым он не может перемещаться: машина - густой лес и болото, лошадь и велосипед - болото, вездеход - нет ограничений
         При попытке переместиться должен быть возвращен результат true/false - удалось ли выполнить действие
          */
+
+        Human me = new Human("Вячеслав", 100, 10);
+        Car lada = new Car("Калина", 40, 5, new Terrain[]{Terrain.PLAIN});
+        Bicycle myBike = new Bicycle("Кама", new Terrain[]{Terrain.FOREST, Terrain.PLAIN});
+        
     }
 }
