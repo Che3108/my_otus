@@ -1,18 +1,18 @@
 package ru.otus.cherepanovvs.lesson13;
 
 public enum Terrain {
-    FOREST(0),
-    PLAIN(1),
-    SWAMP(2);
+    FOREST("Густой лес"),
+    PLAIN("Равнина"),
+    SWAMP("Болото");
 
-    private int index;
+    private String russian;
 
-    Terrain(int index) {
-        this.index = index;
+    Terrain(String russian) {
+        this.russian = russian;
     }
 
-    public int getIndex() {
-        return index;
+    public String russian() {
+        return russian;
     }
 
 }

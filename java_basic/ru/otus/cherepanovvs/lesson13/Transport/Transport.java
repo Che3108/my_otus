@@ -12,16 +12,16 @@ public abstract class Transport implements Driver{
 
     @Override
     public boolean startControl(Human driver) {
-        if (this.driver != null) {
-            System.out.println("Новый водитель: " +  this.driver);
+        this.driver = driver;
+        if (this.driver == null) {
+            System.out.println("За руль " + this + " никто не сел");
             return false;
         }
-        this.driver = driver;
-        this.driver.setCurrentTransport(this);
         if (this.fuelValue == -1) {
             this.fuelValue = this.driver.getStamina();
             this.fuelConsumption = this.driver.getStaminaConsumptionWalk() / 2;
         }
+        System.out.println("Новый водитель " + this + ": " +  this.driver);
         return true;
     }
 
@@ -33,11 +33,11 @@ public abstract class Transport implements Driver{
     @Override
     public boolean finishControl() {
         if (this.driver == null) {
-            System.out.println("Водитель отсутствует");
+            System.out.println("Водитель " + this + " отсутствует");
             return false;
         }
-        this.driver.setCurrentTransport(null);
         this.driver = null;
+        System.out.println("Водитель " + this + " успешно вышел");
         return true;
     }
 
@@ -45,7 +45,7 @@ public abstract class Transport implements Driver{
     public boolean drive(int distance, Terrain terrain)
     {
         if (this.driver == null) {
-            System.out.println("Водитель отсутствует");
+            System.out.println("Водитель " + this + " отсутствует");
             return false;
         }
 
@@ -56,17 +56,29 @@ public abstract class Transport implements Driver{
             }           
         }
         if (!allowedTerrainFlag) {
-            System.out.println("Невозможно проехать по " + terrain);
+            System.out.println("Невозможно проехать по " + terrain.russian());
             return false;
         }
 
-        int spentFuel = (distance / 100) * fuelConsumption;
+        int spentFuel = distance * fuelConsumption;
         if (this.fuelValue - spentFuel <= 0) {
             System.out.println("Не хватит топлива");
             return false;
         }
         this.fuelValue -= spentFuel;
-        System.out.println("Успешно проехал по " + terrain);
+        System.out.println("Успешно проехал по " + terrain.russian());
         return true;
+    }
+
+    public void info() {
+        System.out.println("Модель: " + this.model);
+        System.out.println("Остаток топлива: " + this.fuelValue);
+        if (this.driver == null) {
+            System.out.println("Водитель отсутствует");
+            System.out.println();
+            return;
+        }
+        System.out.println("Текущий водитель: " + this.driver);
+        System.out.println();
     }
 }

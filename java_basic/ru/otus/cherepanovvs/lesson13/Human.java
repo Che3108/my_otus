@@ -10,6 +10,7 @@ public class Human {
         this.name = name;
         this.stamina = stamina;
         this.currentTransport = null;
+        this.staminaConsumption = staminaConsumption;
     }
 
     @Override
@@ -25,29 +26,43 @@ public class Human {
         return this.staminaConsumption;
     }
 
-    public void setCurrentTransport(Driver transport) {
-        if (transport == null) {
-            this.currentTransport = null;
+    public void takeTransport(Driver transport) {
+        if (this.currentTransport != null) {
+            this.currentTransport.finishControl();
         }
         this.currentTransport = transport;
+        this.currentTransport.startControl(this);
+    }
+
+    public void leaveTransport() {
+        this.currentTransport.finishControl();
+        this.currentTransport = null;
     }
 
     public boolean drive(int distance, Terrain terrain)
     {
+        if (terrain == null) {
+            System.out.println("Некуда двигаться");
+            return false;
+        }
+
         if (this.currentTransport != null) {
             return this.currentTransport.drive(distance, terrain);
         }
-        
 
-        int spentStamina = (distance / 100) * this.staminaConsumption;
-        if (this.stamina - spentStamina <= 0) {
+        int spentStamina = distance * this.staminaConsumption;
+        if (this.stamina - spentStamina < 0) {
             System.out.println("Не хватит сил пройти");
             return false;
         }
         this.stamina -= spentStamina;
-        System.out.println("Успешно прошел по " + terrain);
+        System.out.println("Успешно прошел по " + terrain.russian());
         return true;
     }
 
-
+    public void info() {
+        System.out.println("Имя: " + this.name);
+        System.out.println("Стамина: " + this.stamina);
+        System.out.println();
+    }
 }
