@@ -6,6 +6,7 @@ import ru.otus.cherepanovvs.lesson13.Terrain;
 public abstract class Transport implements Driver{
     protected String model;
     protected int fuelValue;
+    protected int currFuelValue;
     protected int fuelConsumption;
     protected Human driver;
     protected Terrain[] allowedTerrain;
@@ -18,7 +19,7 @@ public abstract class Transport implements Driver{
             return false;
         }
         if (this.fuelValue == -1) {
-            this.fuelValue = this.driver.getStamina();
+            this.currFuelValue = this.driver.getStamina();
             this.fuelConsumption = this.driver.getStaminaConsumptionWalk() / 2;
         }
         System.out.println("Новый водитель " + this + ": " +  this.driver);
@@ -61,18 +62,21 @@ public abstract class Transport implements Driver{
         }
 
         int spentFuel = distance * fuelConsumption;
-        if (this.fuelValue - spentFuel <= 0) {
+        if (this.currFuelValue - spentFuel <= 0) {
             System.out.println("Не хватит топлива");
             return false;
         }
-        this.fuelValue -= spentFuel;
+        this.currFuelValue -= spentFuel;
+        if (this.fuelValue == -1) {
+            this.driver.setStamina(this.currFuelValue);
+        }
         System.out.println("Успешно проехал по " + terrain.russian());
         return true;
     }
 
     public void info() {
         System.out.println("Модель: " + this.model);
-        System.out.println("Остаток топлива: " + this.fuelValue);
+        System.out.println("Остаток топлива: " + this.currFuelValue);
         if (this.driver == null) {
             System.out.println("Водитель отсутствует");
             System.out.println();

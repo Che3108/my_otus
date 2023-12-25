@@ -8,5 +8,6 @@ public class Bicycle extends Transport{
         this.fuelValue = -1;
         this.fuelConsumption = -1;
         this.allowedTerrain = allowedTerrain;
+        this.currFuelValue = this.fuelValue;
     }
 }

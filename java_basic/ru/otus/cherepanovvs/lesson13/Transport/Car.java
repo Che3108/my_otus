@@ -8,6 +8,7 @@ public class Car extends Transport{
         this.fuelValue = fuelValue;
         this.fuelConsumption = fuelConsumption;
         this.allowedTerrain = allowedTerrain;
+        this.currFuelValue = this.fuelValue;
     }
     
 }

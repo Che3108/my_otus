@@ -8,5 +8,6 @@ public class Offroader extends Transport{
         this.fuelValue = fuelValue;
         this.fuelConsumption = fuelConsumption;
         this.allowedTerrain = allowedTerrain;
+        this.currFuelValue = this.fuelValue;
     }
 }

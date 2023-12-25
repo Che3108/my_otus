@@ -22,6 +22,12 @@ public class Human {
         return this.stamina;
     }
 
+    public void setStamina(int stamina) {
+        if ((stamina <= this.stamina) & (stamina >= 0)) {
+            this.stamina = stamina;
+        }
+    }
+
     public int getStaminaConsumptionWalk() {
         return this.staminaConsumption;
     }
