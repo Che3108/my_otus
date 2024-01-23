@@ -11,9 +11,9 @@ public class MyQueue<T> {
         this.contents.addLast(data);
     }
 
-    public T poll() throws Empty {
+    public T poll() {
         if (this.contents.getSize() == 0) {
-            throw new Empty("Очередь пуста");
+            return null;
         }
         T value = this.contents.getFirst();
         this.contents.remove(0);
@@ -23,11 +23,5 @@ public class MyQueue<T> {
     @Override
     public String toString() {
         return this.contents.toString();
-    }
-}
-
-class Empty extends RuntimeException {
-    public Empty(String var1) {
-        super(var1);
     }
 }

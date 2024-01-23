@@ -36,9 +36,13 @@ public class HomeWork17 {
         // проверяем метод add
         test_list.add(2, 15);
         test_list.add(3, 27);
-        // если индекс больше или равен размеру листа, то всатвляем в конец
-        test_list.add(77, 77);
-
+        // если индекс больше или равен размеру листа, то будет исключение IndexOutOfBoundsException
+        try {
+            test_list.add(77, 77);
+        } catch (IndexOutOfBoundsException ex) {
+            System.out.println(ex);
+            System.out.println();
+        }
         System.out.println("Текущий размер: " + test_list.getSize());
         System.out.println("Текущее содержимое: " + test_list);
         System.out.println();
@@ -46,7 +50,7 @@ public class HomeWork17 {
         // отрицательные индексы использовать нельзя
         try {
             test_list.add(-1, 37);
-        } catch (OutOfRange ex) {
+        } catch (IndexOutOfBoundsException ex) {
             System.out.println(ex);
             System.out.println();
         }
@@ -61,10 +65,10 @@ public class HomeWork17 {
         System.out.println("Третий элемент: " + test_list.get(3));
         System.out.println();
 
-        // если попытаться получить индекс, которого нет, то будет исключение OutOfRange
+        // если попытаться получить индекс, которого нет, то будет исключение IndexOutOfBoundsException
         try {
             System.out.println("Восьмой элемент: " + test_list.get(8));
-        } catch (OutOfRange ex) {
+        } catch (IndexOutOfBoundsException ex) {
             System.out.println(ex);
             System.out.println();
         }
@@ -81,10 +85,10 @@ public class HomeWork17 {
         System.out.println("Текущее содержимое: " + test_list);
         System.out.println();
 
-        // если попытаться удалить индекс, которого нет, то будет исключение OutOfRange
+        // если попытаться удалить индекс, которого нет, то будет исключение IndexOutOfBoundsException
         try {
             test_list.remove(8);
-        } catch (OutOfRange ex) {
+        } catch (IndexOutOfBoundsException ex) {
             System.out.println(ex);
             System.out.println();
         }
@@ -171,15 +175,14 @@ public class HomeWork17 {
 
     public static int[] sort(int[] array) {
         int[] result = array.clone();
-        int currentValue = 0;
         boolean stepFlag = true;
         while (stepFlag) {
             stepFlag = false;
             for (int i = 1; i < result.length; i++) {
-                if (result[i-1] > result[i]) {
-                    currentValue = result[i-1];
-                    result[i-1] = result[i];
-                    result[i] = currentValue;
+                if (result[i - 1] > result[i]) {
+                    int buffer = result[i - 1];
+                    result[i - 1] = result[i];
+                    result[i] = buffer;
                     stepFlag = true;
                 }        
             }
