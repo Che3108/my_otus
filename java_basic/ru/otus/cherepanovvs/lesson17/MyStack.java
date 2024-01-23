@@ -1,5 +1,7 @@
 package ru.otus.cherepanovvs.lesson17;
 
+import java.util.EmptyStackException;
+
 public class MyStack<T> {
     private MyLinkedList<T> contents;
 
@@ -11,9 +13,9 @@ public class MyStack<T> {
         this.contents.addFirst(data);
     }
 
-    public T pop() throws Empty {
+    public T pop() throws EmptyStackException {
         if (this.contents.getSize() == 0) {
-            throw new Empty("Стек пуст");
+            throw new EmptyStackException();
         }
         T value = this.contents.getFirst();
         this.contents.remove(0);
@@ -23,11 +25,5 @@ public class MyStack<T> {
     @Override
     public String toString() {
         return this.contents.toString();
-    }
-}
-
-class Empty extends RuntimeException {
-    public Empty(String var1) {
-        super(var1);
     }
 }
