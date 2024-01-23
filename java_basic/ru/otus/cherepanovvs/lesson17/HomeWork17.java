@@ -1,6 +1,7 @@
 package ru.otus.cherepanovvs.lesson17;
 
 import java.util.Arrays;
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class HomeWork17 {
@@ -118,7 +119,7 @@ public class HomeWork17 {
         try {
             System.out.println("Из очереди достали: " + queue.poll());
             System.out.println("Текущее содержимое очереди: " + queue);
-        } catch (Empty ex) {
+        } catch (EmptyStackException ex) {
             System.out.println(ex);
             System.out.println();
         }
@@ -148,7 +149,7 @@ public class HomeWork17 {
         try {
             System.out.println("Из стека достали: " + stack.pop());
             System.out.println("Текущее содержимое стека: " + stack);
-        } catch (Empty ex) {
+        } catch (EmptyStackException ex) {
             System.out.println(ex);
             System.out.println();
         }
