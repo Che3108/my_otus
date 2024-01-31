@@ -48,6 +48,19 @@ public class Server {
     }
 
     public synchronized void sendPrivateMessage(ClientHandler sender, String receiverUsername, String message) {
-        // TODO homework
+        ClientHandler listener = null;
+        for (ClientHandler client : clients) {
+            if (receiverUsername.equals(client.getUsername())) {
+                listener = client;
+                break;
+            }
+        }
+
+        if (listener == null) {
+            sender.sendMessage("User not found");
+            return;
+        }
+        sender.sendMessage("You whisp " + listener.getUsername() + ": " + message);
+        listener.sendMessage(sender.getUsername() + " whisp you: " + message);
     }
 }
