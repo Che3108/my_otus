@@ -7,6 +7,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class ClientApplication {
+    static String username;
     public static void main(String[] args) {
         try (
                 Socket socket = new Socket("localhost", 8189);
@@ -19,6 +20,12 @@ public class ClientApplication {
                 try {
                     while (true) {
                         String message = in.readUTF();
+                        if (message.startsWith("/")) {
+                            if (message.startsWith("/authok ")) {
+                                username = message.split(" ")[1];
+                                continue;
+                            }
+                        }
                         System.out.println(message);
                     }
                 } catch (IOException e) {
