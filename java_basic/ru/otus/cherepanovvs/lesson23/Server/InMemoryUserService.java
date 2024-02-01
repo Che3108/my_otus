@@ -9,19 +9,28 @@ public class InMemoryUserService implements UserService {
         private String login;
         private String password;
         private String username;
+        private String role;
 
         public User(String login, String password, String username) {
             this.login = login;
             this.password = password;
             this.username = username;
+            this.role = "USER";
         }
-    }
+
+        public User(String login, String password, String username, String role) {
+            this.login = login;
+            this.password = password;
+            this.username = username;
+            this.role = role;
+        }
+    }  
 
     private List<User> users;
 
     public InMemoryUserService() {
         this.users = new ArrayList<>(Arrays.asList(
-                new User("login1", "pass1", "user1"),
+                new User("login1", "pass1", "user1", "ADMIN"),
                 new User("login2", "pass2", "user2"),
                 new User("login3", "pass3", "user3")
         ));
@@ -57,6 +66,18 @@ public class InMemoryUserService implements UserService {
         for (User u : users) {
             if (u.username.equals(username)) {
                 return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isAdminRole(String username) {
+        for (User u : users) {
+            if (u.username.equals(username)) {
+                if (u.role.equals("ADMIN")) {
+                    return true;
+                }
             }
         }
         return false;

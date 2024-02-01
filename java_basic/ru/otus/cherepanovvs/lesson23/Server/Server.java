@@ -71,7 +71,6 @@ public class Server {
                 break;
             }
         }
-
         if (listener == null) {
             sender.sendMessage("СЕРВЕР: пользователь не найден");
             return;
@@ -79,4 +78,21 @@ public class Server {
         sender.sendMessage("Вы шепнули " + listener.getUsername() + ": " + message);
         listener.sendMessage(sender.getUsername() + " шепчет вам: " + message);
     }
+
+    public synchronized void kickUser(ClientHandler initiator, String targetUserName) {
+        ClientHandler target = null;
+        for (ClientHandler client : clients) {
+            if (targetUserName.equals(client.getUsername())) {
+                target = client;
+                break;
+            }
+        }
+        if (target == null) {
+            initiator.sendMessage("СЕРВЕР: пользователь не найден");
+            return;
+        }
+        target.disconnect();
+    }
+
+
 }

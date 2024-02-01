@@ -45,6 +45,15 @@ public class ClientHandler {
                     this.server.sendPrivateMessage(this, messageParams[1], messageParams[2]);
                     continue;
                 }
+                if (message.startsWith("/kick ")) {
+                    if (!server.getUserService().isAdminRole(username)) {
+                        sendMessage("СЕРВЕР: Нет прав для выполнения команды");
+                        continue;
+                    }
+                    String[] messageParams = message.split(" ", 2);
+                    this.server.kickUser(this, messageParams[1]);
+                    continue;
+                }
             }
             server.broadcastMessage(username + ": " + message);
         }
