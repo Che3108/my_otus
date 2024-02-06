@@ -1,0 +1,31 @@
+Таблица со списком тестов "Tests":
+test_id (integer, primary key)
+test_name (text) Название теста
+
+
+Таблица со списком вопросов "Questions":
+question_id (integer, primary key)
+test_id (integer, foreign key) - тест, к которому относится этот вопрос
+question_text (text) - текст вопроса
+
+
+Таблица вариантов ответов на вопросы "Answer Options":
+answer_id (integer, primary key)
+question_id (integer, foreign key) - id вопроса, к которому относится этот ответ
+answer_text (text) - текст ответа
+is_correct (boolean) - флаг, что данный ответ является верным
+
+
+Таблица с результатами тестирования "Test Results":
+result_id (integer, primary key)
+test_id (integer, foreign key) - id сдаваемого теста
+student_name (text) - имя студента
+student_surname (text) - фамилия студента
+test_date (date) - дата сдачи теста
+
+
+Таблица с выбранными студентами вариантами ответов "Answers to Questions":
+answer_id (integer, primary key)
+result_id (integer, foreign key) - id таблицы результата тестирования
+question_id (integer, foreign key) - id вопроса на который отвечал студент
+selected_answer_id (integer, foreign key) - id выбранного студентом ответа
