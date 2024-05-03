@@ -1,0 +1,8 @@
+venv/
+.vscode/
+.env
+__pycache__/
+*.rar
+*.gz
+*.zip
+python_3_6/

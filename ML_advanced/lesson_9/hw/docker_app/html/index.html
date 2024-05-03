@@ -1,0 +1,67 @@
+<!DOCTYPE text/html>
+<html>
+    <head>
+        <title>heart check</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <form method="POST" id="user_data" action="/result" enctype="multipart/form-data" name="data"></form>
+        <table>
+            <tr>
+                <th align="left">age:</th>
+                <td><input type="text"  name="age" form="user_data" value="" pattern="^[\d]{1,3}" title="Only digits (max 999)"placeholder="Yous age"></td>
+            </tr>
+            <tr>
+                <th align="left">sex:</th>
+                <td><input type="text" name="sex" form="user_data" value="" pattern="^(M){1}|(F){1}" title="M or F" placeholder="M or F"></td>
+            </tr>
+            <tr>
+                <th align="left">cp:</th>
+                <td><input type="text"  name="cp" form="user_data" value="" pattern="^(0){1}|(1){1}|(2){1}|(3){1}" title="Choice of 0, 1, 2 or 3" placeholder="Choice of 0, 1, 2 or 3"></td>
+            </tr>
+            <tr>
+                <th align="left">trestbps:</th>
+                <td><input type="text"  name="trestbps" form="user_data" value="" pattern="^[\d]{1,3}" title="Only digits (max 999)" placeholder="Resting blood pressure (in mm Hg)"></td>
+            </tr>
+            <tr>
+                <th align="left">chol:</th>
+                <td><input type="text"  name="chol" form="user_data" value="" pattern="^[\d]{1,3}" title="Only digits (max 999)" placeholder="Cholesterol level, mg/dl"></td>
+            </tr>
+            <tr>
+                <th align="left">fbs:</th>
+                <td><input type="text"  name="fbs" form="user_data" value="" pattern="^(0){1}|(1){1}" title="`0` < 120 mg/dl, `1` > 120 mg/dl" placeholder="Fasting blood sugar"></td>
+            </tr>
+            <tr>
+                <th align="left">restecg:</th>
+                <td><input type="text"  name="restecg" form="user_data" value="" pattern="^(0){1}|(1){1}|(2){1}" title="Choice of `0`, `1` or `2`" placeholder="Resting electrocardiographic results"></td>
+            </tr>
+            <tr>
+                <th align="left">thalach:</th>
+                <td><input type="text"  name="thalach" form="user_data" value="" pattern="^[\d]{1,3}" title="Only digits (max 999)" placeholder="Maximum heart rate achieved during the Thallium stress test"></td>
+            </tr>
+            <tr>
+                <th align="left">exang:</th>
+                <td><input type="text"  name="exang" form="user_data" value="" pattern="^([Yy]es)|([Nn]o)" title="`Yes` or `No`" placeholder="Exercise induced angina"></td>
+            </tr>
+            <tr>
+                <th align="left">oldpeak:</th>
+                <td><input type="text"  name="oldpeak" form="user_data" value="" pattern="^[\d]*[\.]{1}[\d]*" title="Decimal fraction" placeholder="ST depression induced by exercise relative to rest"></td>
+            </tr>
+            <tr>
+                <th align="left">slope:</th>
+                <td><input type="text"  name="slope" form="user_data" value="" pattern="^(0){1}|(1){1}|(2){1}" title="Choice of `0`, `1` or `2`" placeholder="Slope of the peak exercise ST segment"></td>
+            </tr>
+            <tr>
+                <th align="left">ca:</th>
+                <td><input type="text"  name="ca" form="user_data" value="" pattern="^[\d]*" title="Only digits" placeholder="Number of major vessels colored by fluoroscopy"></td>
+            </tr>
+            <tr>
+                <th align="left">thal:</th>
+                <td><input type="text"  name="thal" form="user_data" value="" pattern="^(1){1}|(2){1}|(3){1}" title="Choice of `1`, `2` or `3`" placeholder="Thalassemia type"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" form="user_data"></td>
+            </tr>
+        </table>
+    </body>
+</html>
