@@ -53,3 +53,14 @@
 1) Точка доступа к бакиту s3://cherepanov-bucket
 2) ![Кластер DataProc](image.png)
 3) ![Спиок файлов в кластере](image-1.png)
+
+
+# Занятие №16
+## ДЗ к занятию №16
+
+1) Служебный аккаунт остался от прошлого ДЗ
+2) Точка доступа к бакиту s3://cherepanov-bucket-new
+3) DataProc кластер ![DataProc кластер](image-2.png)
+4) Анализ можно отследить по ноутбуку [hypothese_0](hypothese_0.ipynb)
+5) Скрипт очистки данных [clear_data](clear_data.py)
+6) Сохраненные данные в формате parquet ![parquet](image-3.png)
