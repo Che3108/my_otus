@@ -64,3 +64,14 @@
 4) Анализ можно отследить по ноутбуку [hypothese_0](hypothese_0.ipynb)
 5) Скрипт очистки данных [clear_data](clear_data.py)
 6) Сохраненные данные в формате parquet ![parquet](image-3.png)
+
+
+# Занятие №20
+## ДЗ к занятию №20
+
+1) SSH Connection ![SSH Connection](image-5.png)
+2) DAG [clear_data_DAG](docker_files/dags/clear_data_DAG.py)
+3) Мой DAG  всистеме ![alt text](image-6.png)
+4) Мне это удалось ![alt text](image-4.png)
+
+Дополнительно в каталоге [docker_files](docker_files) находятся файлы для запуска

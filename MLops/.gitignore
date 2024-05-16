@@ -1,2 +1,9 @@
 secur*
 params*
+venv/
+__pycache__/
+logs/
+.env
+airflow_build.sh
+config/
+plugins/
