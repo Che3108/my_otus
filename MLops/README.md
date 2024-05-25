@@ -71,7 +71,7 @@
 
 1) SSH Connection ![SSH Connection](image-5.png)
 2) DAG [clear_data_DAG](docker_files/dags/clear_data_DAG.py)
-3) Мой DAG  всистеме ![alt text](image-6.png)
+3) Мой DAG в системе ![alt text](image-6.png)
 4) Мне это удалось ![alt text](image-4.png)
 
 Дополнительно в каталоге [docker_files](docker_files) находятся файлы для запуска
